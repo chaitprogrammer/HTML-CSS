@@ -1,107 +1,203 @@
-<!DOCTYPE html>
-<!-- source: http://www.sitepoint.com/css3-tabs-using-target-selector -->
-<!-- @author Chaitanya Guddanti -->
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>HTML CSS Project</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<body>
-	
-	<div id="bg">
-		<img src="images/bg.jpg" alt="">
-	</div>
+@CHARSET "ISO-8859-1";
+/**
+ * CSS3 tabbed interface
+ * 	- based on http://www.sitepoint.com/css3-tabs-using-target-selector/
+ * 	- 1st tab is LAST in markup:
+ * 		- so it can be styled as active on page load
+ *		- use combination of :target and ~ to override when another tab is clicked
+ * 
+ * source: http://www.sitepoint.com/css3-tabs-using-target-selector/
+ */
+body {
+	font: 62.5%/1.5 Georgia, serif;
+	margin: 10em 0 0;
+	background-image:
+}
 
-	<article class="tabs">
+h2 {
+	font-size: 2em;
+}
 
-		<section id="tab2" class="tab_block">
-			<h2>
-				<a href="#tab2">About Us</a>
-			</h2>
-			<div>
-				<p>Founded in 2016.</p>
-			</div>
-		</section>
-		<section id="tab3" class="tab_block">
-			<h2>
-				<a href="#tab3">Products & Service</a>
-			</h2>
-			<div>
-				<p>We currently provide no Products or Services.</p>
+p {
+	font-size: 1.6em;
+}
 
-			</div>
-		</section>
-		<section id="tab4" class="tab_block">
-			<h2>
-				<a href="#tab4">News Bulletin</a>
-			</h2>
-			<div>
-				<p>This content appears on tab 4.</p>
-				<p>
-					This tab is <b>last</b> in the markup so that it can be styled as
-					active tab on page load.
-				</p>
-				<p>Some more content...</p>
-			</div>
-		</section>
-		<section id="tab5" class="tab_block">
-			<h2>
-				<a href="#tab5">In development</a>
-			</h2>
-			<div>
-				<p>This content appears on tab 5.</p>
-				<p>
-					This tab is <b>last</b> in the markup so that it can be styled as
-					active tab on page load.
-				</p>
-				<p>Some more content...</p>
-			</div>
-		</section>
-		<section id="tab6" class="tab_block">
-			<h2>
-				<a href="#tab6">Contact Us</a>
-			</h2>
-			<div class="post-title-wrapper">
-				<h1 class="header-post-title-class">Contact Us:</h1>
-				<div id="nav">
-					<h2>Address</h2>
-					<ul>
-						<li><h3>73 Cleveland Ave</h3></li>
-						<li><h3>Chelsea, MA</h3></li>
-						<li><h3>ph: 000-000-0000</h3></li>
-					</ul>
-				</div>
-				<br />
-				<br>
-				<br>
-				<div class="post-title-wrapper">
-					<h1 class="header-post-title-class">Send a message:</h1>
-					<div id="nav">
-						<form>
-							<br><br> First name:<br> <input type="text" name="firstname"><br>
-							Last name:<br> <input type="text" name="lastname"><br>
-							Your Message:<br> <input type="text" name="Your Message"><BR>
-							<input type="submit" value="Submit">
-						</form>
-					</div>
+.tabs {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 120em;
+}
 
-				</div>
-		</section>
-		<section id="tab1" class="tab_block">
-			<h2>
-				<a href="#tab1">Home Page</a>
-			</h2>
-			<div>
+.tab_block {
+	position: absolute;
+}
 
-				<p>A Message From CEO: Welcome to my page. To contact us click
-					contacts tab.</p>
-				<a
-					href="file:///C:/Users/Chaitanya/git/ISEM501-50-2016-Project1/WebContent/index.html#tab6"><h3>Contact
-						Us</h3></a>
-			</div>
-		</section>
-	</article>
+.tab_block h2 {
+	background-color: menu; border-radius : 5px 5px 0 0;
+	line-height: 2em;
+	left: -1em;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -2.7em;
+	width: 10em;
+	border-radius: 5px 5px 0 0;
+}
+.tab_block:first-child h2 {
+	left: 9.1em;
+}
 
-</body>
-</html>
+.tab_block:nth-child(2) h2 {
+	left: 19.2em;
+}
+
+.tab_block:nth-child(3) h2 {
+	left: 29.3em;
+}
+
+.tab_block:nth-child(4) h2 {
+	left: 39.4em;
+}
+
+.tab_block:nth-child(5) h2 {
+	left: 49.5em;
+}
+
+.tab_block h2 a {
+	color: #000;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.tab_block div {
+	box-sizing: border-box;
+	margin: -5.4em 0 0 -2.1em;
+	height: 0;
+	overflow: hidden;
+	visibilty: hidden;
+	width: 0;
+}
+/* last in HTML markup, but visually shown first */
+.tab_block:last-child {
+	background: #FFF;
+}
+
+.tab_block:last-child h2 {
+	background: #FFF;
+	border: 1px solid #DDD;
+	border-bottom-color: #FFF;
+	box-shadow: 0px 0 3px rgba(0, 0, 0, 0.1);
+	left: -1.05em;
+}
+
+.tab_block:last-child h2:after {
+	border-bottom: 4px solid #FFF;
+	content: '';
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+
+.tab_block:last-child div {
+	border: 1px solid #DDD;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+	padding: 1em 2em;
+	height: auto;
+	overflow: visible;
+	visibilty: visible;
+	width: 40em;
+}
+
+.tab_block:target, .tab_block:target h2 {
+	background-color: #FFF;
+}
+
+.tab_block:target h2 {
+	border: 1px solid #DDD;
+	border-bottom-color: #FFF;
+	box-shadow: 0px 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.tab_block:target h2:after {
+	border-bottom: 4px solid #FFF;
+	content: '';
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+
+.tab_block:target ~ .tab_block:last-child h2 {
+	background: #DDD;
+	border: 0;
+	box-shadow: none;
+	left: -1em;
+}
+
+.tab_block:target ~ .tab_block:last-child h2:after {
+	border-bottom: 0;
+}
+
+.tab_block:target div {
+	border: 1px solid #DDD;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+	padding: 1em 2em;
+	height: auto;
+	visibilty: visible;
+	width: 120em;
+}
+
+.tab_block:target ~ .tab_block div {
+	border: 0;
+	box-shadow: none;
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	visibilty: hidden;
+	width: 0;
+}
+
+.tab_block h2 {
+	transition: all 500ms ease;
+}
+
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.header-post-title-container {
+	border-bottom: 1px solid #EAEAEA;
+	padding: 20px 0;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.05) inset;
+}
+.header-post-title-container .post-title-wrapper {
+	float: left;
+	max-width: 100%;
+	padding-right: 30px;
+}
+.header-post-title-class {
+	font-size: 22px;
+	padding-bottom: 0;
+}
+
+#nav ul { list-style-type: none;
+position: relative; }
